@@ -1,0 +1,178 @@
+/* 📌 Navbar Styles */
+.navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: var(--navbar-bg, #ffffff);
+    color: var(--text-primary, #2c3e50);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: background-color var(--transition-speed, 0.3s) ease, box-shadow var(--transition-speed, 0.3s) ease;
+  }
+  
+  .navbar.dark-mode {
+    background-color: var(--navbar-bg, #1e1e1e);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Ensures content doesn't overlap with navbar */
+  body {
+    padding-top: 0; /* Removing this as it causes issues with sticky navbar */
+    margin-right: 0px;
+    overflow-x: hidden;
+  }
+  
+  /* 📌 Navbar Layout */
+  .nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--text-primary, #2c3e50);
+    transition: color var(--transition-speed, 0.3s) ease;
+  }
+  
+  .dark-mode .nav-logo {
+    color: var(--text-primary, #e4e6eb);
+  }
+  
+  .nav-center {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .nav-center button {
+    background: none;
+    border: none;
+    padding: 8px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    color: var(--text-primary, #2c3e50);
+    transition: background-color var(--transition-speed, 0.3s) ease, color var(--transition-speed, 0.3s) ease;
+  }
+  
+  .nav-center button:hover {
+    background-color: var(--button-secondary-hover, #e4e6eb);
+    color: var(--accent-color, #7289da);
+  }
+  
+  .dark-mode .nav-center button {
+    color: var(--text-primary, #e4e6eb);
+  }
+  
+  .dark-mode .nav-center button:hover {
+    background-color: var(--button-secondary-hover, #444444);
+  }
+  
+  /* 📌 Logout Button */
+  .logout-btn {
+    background-color: var(--button-primary, #7289da);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color var(--transition-speed, 0.3s) ease;
+    margin-left: 10px;
+  }
+  
+  .logout-btn:hover {
+    background-color: var(--button-primary-hover, #5e77d4);
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .navbar {
+      padding: 10px 20px;
+    }
+    
+    .nav-center {
+      display: none; /* Hide on mobile, add a mobile menu toggle if needed */
+    }
+    
+    .nav-logo {
+      font-size: 1.2rem;
+    }
+  }
+  
+  .notification-icon {
+    position: relative;
+    margin-right: 15px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .notification-icon i {
+    transition: color 0.2s ease;
+  }
+  
+  .notification-icon:hover i {
+    color: var(--primary-color);
+  }
+  
+  .notification-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+  }
+  
+  /* Add or update these styles */
+.navbar {
+  /* ...existing code... */
+  padding: 0 20px; /* Add padding to the navbar */
+  overflow: visible; /* Ensure content doesn't get cut off */
+}
+
+.nav-right {
+  /* ...existing code... */
+  margin-right: 10px; /* Add margin to keep content away from edge */
+  display: flex;
+  align-items: center;
+}
+
+.logout-btn {
+  /* ...existing code... */
+  white-space: nowrap; /* Prevent text from wrapping */
+  margin-left: 10px; /* Space between notification icon and button */
+}
+
+/* For smaller screens, add responsive design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 10px;
+  }
+  
+  .nav-center {
+    flex-wrap: wrap;
+  }
+  
+  .nav-right {
+    margin-right: 5px;
+  }
+}

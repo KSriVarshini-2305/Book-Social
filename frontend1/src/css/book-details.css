@@ -1,0 +1,645 @@
+.book-details-page {
+    padding: 30px;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+  }
+  
+  .book-details-card {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+  }
+  
+  .book-details-header {
+    background: linear-gradient(135deg, #3498db, #1abc9c);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .book-details-header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .book-details-header h2 {
+    font-size: 20px;
+    font-weight: normal;
+  }
+  
+  .book-details-content {
+    padding: 30px;
+  }
+  
+  .book-details-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .book-genres {
+    text-align: left; /* Ensure it starts from the left */
+    width: 100%; /* Make it take full width */
+  }
+  
+
+  .book-genres h3 {
+    color: #2c3e50;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+
+
+  .rating-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .public-rating, .user-rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .user-rating {
+    padding-top: 10px;
+    border-top: 1px dashed #eee;
+  }
+  
+  .user-rating span {
+    color: #1abc9c;
+    font-weight: 500;
+    min-width: 80px;
+  }
+
+
+  .user-review-section {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #eee;
+  }
+  
+  .user-comment {
+    margin-top: 10px;
+  }
+  
+  .user-comment span {
+    color: #1abc9c;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .comment-text {
+    padding: 10px;
+    background: #f8f8f8;
+    border-radius: 5px;
+    font-style: italic;
+    color: #555;
+  }
+
+
+  
+  .book-details-rating {
+    font-size: 18px;
+    min-width: 200px;
+    text-align: right;
+  }
+  
+  .rating-big {
+    font-size: 24px;
+    color: #f39c12;
+    margin-right: 10px;
+  }
+  
+  .book-details-description h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+  }
+  
+  .book-details-description p {
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  .back-button {
+    margin-top: 30px;
+    padding: 12px 20px;
+    background: #1abc9c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 20px;
+  }
+  
+  .back-button:hover {
+    background: #16a085;
+    background-color: #e0e0e0;
+  }
+  
+  .loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+  }
+  
+  .loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid #1abc9c;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+  }
+
+  .loader {
+    border: 5px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 5px solid #3498db;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+    margin-bottom: 20px;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .error-container, .not-found-container {
+    text-align: center;
+    padding: 40px;
+    margin: 20px auto;
+    max-width: 600px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .error-message {
+    color: #e74c3c;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  
+  @media (max-width: 768px) {
+    .book-details-meta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+    
+    .book-details-rating {
+      text-align: left;
+    }
+  }
+
+  .star-rating .star.interactive {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.star-rating .star.interactive:hover {
+    transform: scale(1.2);
+}
+
+.book-cover-container {
+  flex-shrink: 0;
+  width: 200px;
+}
+
+.book-cover-large {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-cover-placeholder-large {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-cover-placeholder-large .book-icon {
+  font-size: 50px;
+  color: #666;
+}
+
+.book-header-text {
+  flex: 1;
+}
+
+/* User Comment Form Styling */
+.user-comment-form {
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.user-comment-form h3 {
+  color: #2c3e50;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.user-comment-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+  margin-bottom: 10px;
+}
+
+.comment-submit-btn {
+  padding: 8px 15px;
+  background-color: #1abc9c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.comment-submit-btn:hover {
+  background-color: #16a085;
+}
+
+.comment-submit-btn:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.login-prompt {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  color: #555;
+}
+
+.login-prompt a {
+  color: #3498db;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.login-prompt a:hover {
+  text-decoration: underline;
+}
+
+/* Community Reviews Section */
+.community-reviews {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.community-reviews h3 {
+  color: #2c3e50;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.review-item {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.reviewer-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.user-icon {
+  color: #7f8c8d;
+}
+
+.reviewer-name {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.review-meta {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.review-date {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #7f8c8d;
+  font-size: 0.9em;
+}
+
+.clock-icon {
+  font-size: 0.8em;
+}
+
+.review-content {
+  color: #34495e;
+  line-height: 1.5;
+}
+
+.no-reviews {
+  text-align: center;
+  color: #7f8c8d;
+  font-style: italic;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .review-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .review-meta {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* Reviewer Link Styling */
+.reviewer-link {
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.reviewer-link:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
+.reviewer-link:hover .user-icon {
+  color: #3498db;
+}
+
+.reviewer-link:hover .reviewer-name {
+  color: #3498db;
+  text-decoration: underline;
+}
+
+/* Wishlist Button and Dropdown */
+.wishlist-section {
+    margin: 15px 0;
+}
+
+.wishlist-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 15px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #333;
+}
+
+.wishlist-button:hover {
+    background-color: #e9e9e9;
+    border-color: #bbb;
+}
+
+.wishlist-button svg {
+    margin-right: 8px;
+    color: #e74c3c;
+}
+
+.wishlist-dropdown-container {
+    position: relative;
+}
+
+.wishlist-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 250px;
+    max-height: 350px;
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    padding: 15px;
+    margin-top: 5px;
+}
+
+.wishlist-dropdown h4 {
+    margin: 0 0 12px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.wishlist-options {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.wishlist-options li {
+    margin-bottom: 5px;
+}
+
+.wishlist-option {
+    width: 100%;
+    text-align: left;
+    padding: 8px 10px;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    color: #333;
+    font-weight: 500;
+}
+
+.wishlist-option:hover {
+    background-color: #f7f7f7;
+    color: #0078d7;
+}
+
+.wishlist-option.selected {
+    background-color: #e8f4fd;
+    color: #0078d7;
+    font-weight: 600;
+}
+
+.no-wishlists-message {
+    color: #888;
+    font-style: italic;
+    padding: 10px 0;
+}
+
+.create-wishlist-button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    border: 1px dashed #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+    transition: all 0.2s ease;
+}
+
+.create-wishlist-button:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.create-wishlist-button svg {
+    margin-right: 8px;
+}
+
+.create-wishlist-form {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+.create-wishlist-form input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.create-wishlist-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.create-wishlist-actions button {
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.create-wishlist-actions button:first-child {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #43A047;
+}
+
+.create-wishlist-actions button:first-child:hover:not(:disabled) {
+    background-color: #43A047;
+}
+
+.create-wishlist-actions button:last-child {
+    background-color: #f3f3f3;
+}
+
+.create-wishlist-actions button:last-child:hover:not(:disabled) {
+    background-color: #e9e9e9;
+}
+
+.create-wishlist-actions button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.book-wishlists {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #444;
+    font-weight: 500;
+}
+
+.wishlist-tag {
+    color: #0078d7;
+    font-weight: 600;
+}
+
+.wishlist-button.in-wishlist {
+    background-color: #f8e7e7;
+    border-color: #e7bebe;
+    color: #c0392b;
+}
+
+.wishlist-button.in-wishlist:hover {
+    background-color: #f5d8d8;
+    border-color: #e7b1b1;
+}
+
+.wishlist-button.in-wishlist svg {
+    color: #c0392b;
+}
